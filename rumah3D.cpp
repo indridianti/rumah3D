@@ -150,19 +150,12 @@ glVertex3d(-4.5,1,-5.05);
 glVertex3d(4.5,-1,-5.05);
 glVertex3d(4.5,1,-5.05);
 glEnd();
-glutSwapBuffers(); /*Fungsi berikutnya adalah glutSwapBuffers(),
-yaitu digunakan untuk menukar bagian belakan buffer menjadi buffer
-layar (screen buffer). Dalam modus double-buffered, perintah
-menggambar pada layar, tetapi menggambar pada buffer belakang layar.
-Pada saat ingin menampilkan gambar, gambar yang berada di buffer
-belakang layar dipindahkan ke buffer layar, sehingga menghasilkan
-animasi yang sempurna.*/
+glutSwapBuffers();
 }
 void keyboard(unsigned char key, int x, int y)
 {
 switch (key) {
-// These will allow you to force some extra rotation by
-//pressing the 'y' and 'z' key.
+
 case 'x':
 xpoz=xpoz+5;
 if (xpoz>360) xpoz=0;
