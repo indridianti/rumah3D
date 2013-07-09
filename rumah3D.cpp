@@ -29,7 +29,7 @@ float rot = 0;
 //class untuk terain 2D
 class Terrain {
 private:
-	int w; //Width
+  int w; //Width
 	int l; //Length
 	float** hs; //Heights
 	Vec3f** normals;
@@ -280,95 +280,60 @@ void jalan()
     glPopMatrix();
 }
 
-
-void pohon(){
-glColor3f(0.8, 0.5, 0.2);
-//batang-awal
-glPushMatrix();
-glScalef(0.2, 2, 0.2);
-glutSolidSphere(1.0, 20, 16);
-glPopMatrix();
-//batang-akhir
-
-glColor3f(0.0, 1.0, 0.0);
-//daun
-glPushMatrix();
-glScalef(1, 1, 1.0);
-glTranslatef(0, 1, 0);
-glRotatef(270, 1, 0, 0);
-glutSolidCone(1,3,10,1);
-glPopMatrix();
-
-glPushMatrix();
-glScalef(1, 1, 1.0);
-glTranslatef(0, 2, 0);
-glRotatef(270, 1, 0, 0);
-glutSolidCone(1,3,10,1);
-glPopMatrix();
-
-glPushMatrix();
-glScalef(1, 1, 1.0);
-glTranslatef(0, 3, 0);
-glRotatef(270, 1, 0, 0);
-glutSolidCone(1,3,10,1);
-glPopMatrix();
-//daun-akhir
+void coba(int x1,int y1,int x2,int y2,int x3,int y3,int x4,int y4,int z1,float z2,float z3){
+glColor3f(1.0, 0.3, 0.2); //sisi depan
+glVertex3d(x1,y1,z2);
+glVertex3d(x2,y2,z2);
+glVertex3d(x3,y3,z2);
+glVertex3d(x4,y4,z2);
+glColor3f(1.0, 0.3, 0.2);//right
+glVertex3d(x2,y2,z2);
+glVertex3d(x2,y2,z1);
+glVertex3d(x3,y3,z1);
+glVertex3d(x3,y3,z2);
+glColor3f(1.0, 0.3, 0.2);//back
+glVertex3d(x1,y1,z1);
+glVertex3d(x2,y2,z1);
+glVertex3d(x3,y3,z1);
+glVertex3d(x4,y4,z1);
+glColor3f(1.0, 0.3, 0.2);//left
+glVertex3d(x1,y1,z2);
+glVertex3d(x1,y1,z1);
+glVertex3d(x4,y4,z1);
+glVertex3d(x4,y4,z2);
+glColor3f(0.0, 0.0, 0.0);//bottom
+glVertex3d(x1,y1,z2);
+glVertex3d(x2,y2,z2);
+glVertex3d(x2,y2,z1);
+glVertex3d(x1,y1,z1);
+glColor3f(1.0, 0.3, 0.2);//top
+glVertex3d(x3,y3,z2);
+glVertex3d(x4,y4,z2);
+glVertex3d(x4,y4,z1);
+glVertex3d(x3,y3,z1);
 }
-
-void rumah(){
-
-//tembok
- glPushMatrix();
- glColor3f(0,0,0.5);
- glRotatef(50,0,1,0);
- glutSolidCube(3);
-
-//pintu
-glPushMatrix();
-glColor3f(0.5,0.8,0);
-glTranslatef(-0.6,-1,1.46);
-glScalef(7,10,1);
-glutSolidCube(0.1);
-glPopMatrix();
-//jendela
-glPushMatrix();
-glColor3f(0.5,0.8,0);
-glTranslatef(0.5,0.1,1.46);
-glScalef(3,3,1);
-glutSolidCube(0.1);
-glPopMatrix();
-
-glPushMatrix();
-glColor3f(0.5,0.8,0);
-glTranslatef(0.9,0.1,1.46);
-glScalef(3,3,1);
-glutSolidCube(0.1);
-glPopMatrix();
-
-glPushMatrix();
-glColor3f(0.5,0.8,0);
-glTranslatef(0.9,-0.3,1.46);
-glScalef(3,3,1);
-glutSolidCube(0.1);
-glPopMatrix();
-
-glPushMatrix();
-glColor3f(0.5,0.8,0);
-glTranslatef(0.5,-0.3,1.46);
-glScalef(3,3,1);
-glutSolidCube(0.1);
-glPopMatrix();
-glPopMatrix();
-
-//atap
- glPushMatrix();
- glColor3f(0.8,0,0);
- glRotatef(5,0,1,0);
- glTranslatef(0,1.5,0);
- glScalef(3,1.3,3);
- glutSolidOctahedron();
- glPopMatrix();
-
+void cobain(int x1,int y1,int x2,int y2,int x3,int y3,int x4,int y4,float z1,float z2,float z3){ //atap
+glColor3f(0.0, 0.0, 0.0);//kanan
+glVertex3d(x3,y3,z1);
+glVertex3d(x3,y3,z2);
+glVertex3d(x3,y1,z3);
+glColor3f(0.0, 0.0, 0.0);//kiri
+glVertex3d(x4,y4,z2);
+glVertex3d(x4,y4,z1);
+glVertex3d(x4,y1,z3);
+}
+void cobaini(int x1,int y1,int x2,int y2,int x3,int y3,int x4,int
+y4,float z1,float z2,float z3){//atap
+glColor3f(1.0, 0.0, 1.0);//belakang
+glVertex3d(x4,y4,z1);
+glVertex3d(x3,y3,z1);
+glVertex3d(x3,y1,z3);
+glVertex3d(x4,y1,z3);
+glColor3f(1.0, 0.0, 1.0);//depan
+glVertex3d(x3,y3,z2);
+glVertex3d(x4,y4,z2);
+glVertex3d(x4,y1,z3);
+glVertex3d(x3,y1,z3);
 }
 
 unsigned int LoadTextureFromBmpFile(char *filename);
@@ -404,28 +369,8 @@ void display(void) {
 	rot++;
 	angle++;
 
-    int i;
-    for ( i=0;i<5;i++){
-    glPushMatrix();
-    glScalef(10, 10, 10);
-    glTranslatef(-10+(i*6), 1, 28);
-    glRotatef(40, 0, 1, 0);
-    rumah();
-    glPopMatrix();
-    }
-
-        int j;
-    for ( j=0;j<5;j++){
-    glPushMatrix();
-    glScalef(10, 10, 10);
-    glTranslatef(-10+(j*6), 1, 34);
-    glRotatef(40, 0, 1, 0);
-    rumah();
-    glPopMatrix();
-    }
-
-    //jalan
-    for (int i = -3; i < 6; i++)
+//jalan
+    for (int i = -3; i < 4; i++)
     {
         glPushMatrix();
         glTranslatef(i*22, 0.0, 25);
@@ -433,57 +378,77 @@ void display(void) {
         glPopMatrix();
     }
 
-    //pohon-awal
-    glPushMatrix();
-    glColor3f(1, 0, 0);
-    glTranslatef(-110, 0, 85);
-    glScalef(10, 10, 10);
-    pohon();
-    glPopMatrix();
-
-    glPushMatrix();
-    glColor3f(1, 0, 0);
-    glTranslatef(-110, 0, -85);
-    glScalef(10, 10, 10);
-    pohon();
-    glPopMatrix();
-
-    glPushMatrix();
-    glColor3f(1, 0, 0);
-    glTranslatef(-110, 0, 0);
-    glScalef(10, 10, 10);
-    pohon();
-    glPopMatrix();
-
-    glPushMatrix();
-    glColor3f(1, 0, 0);
-    glTranslatef(0, 0, -85);
-    glScalef(10, 10, 10);
-    pohon();
-    glPopMatrix();
-
-    glPushMatrix();
-    glColor3f(1, 0, 0);
-    glTranslatef(0, 0, 85);
-    glScalef(10, 10, 10);
-    pohon();
-    glPopMatrix();
-
-    glPushMatrix();
-    glColor3f(1, 0, 0);
-    glTranslatef(125, 0, -85);
-    glScalef(10, 10, 10);
-    pohon();
-    glPopMatrix();
-
-   glPushMatrix();
-    glColor3f(1, 0, 0);
-    glTranslatef(100, 0, 85);
-    glScalef(7, 7, 7);
-    pohon();
-    glPopMatrix();
-    //pohon-beres
-
+    coba(-8,-2,8,-2,8,2,-8,2,-5,3,0);//rumah
+    coba(2,-2,8,-2,8,2,2,2,-5,4,0);//kamar
+    coba(-8,-2,-7,-2,-7,2,-8,2,-5,4,0);//dindingpagar kiri
+    coba(-8,-2,-7,-2,-7,0,-8,0,-5,5.5,0);
+    coba(7,-2,8,-2,8,0,7,0,-5,5.5,0);
+    cobaini(-3,5,0,0,8,2,-8,2,-5.5,4.5,0);
+    glColor3f(0.0, 0.0, 0.0);//plafon depan
+    glVertex3d(8,1.8,-3);
+    glVertex3d(-8,1.8,-3);
+    glVertex3d(-8,1.8,4.5);
+    glVertex3d(8,1.8,4.5);//
+    glVertex3d(8,1.8,4.5);
+    glVertex3d(-8,1.8,4.5);
+    glVertex3d(-8,2,4.5);
+    glVertex3d(8,2,4.5);
+    glColor3f(0.0, 0.0, 0.0);//plafon belakang
+    glVertex3d(8,1.8,-5.5);
+    glVertex3d(-8,1.8,-5.5);
+    glVertex3d(-8,1.8,4.5);
+    glVertex3d(8,1.8,4.5);
+    glVertex3d(8,1.8,-5.5);
+    glVertex3d(-8,1.8,-5.5);
+    glVertex3d(-8,2,-5.5);
+    glVertex3d(8,2,-5.5);
+    glVertex3d(4,-0.5,4.1);//jendela kamar
+    glVertex3d(6,-0.5,4.1);
+    glVertex3d(6,1,4.1);
+    glVertex3d(4,1,4.1);
+    glVertex3d(2.7,-0.5,4.1);//jendela kamar2
+    glVertex3d(3.8,-0.5,4.1);
+    glVertex3d(3.8,1,4.1);
+    glVertex3d(2.7,1,4.1);
+    glVertex3d(-2,-2,3.05);//pintu depan
+    glVertex3d(2,-2,3.05);
+    glVertex3d(2,1.3,3.05);
+    glVertex3d(-2,1.3,3.05);
+    glVertex3d(-2,-2,-5.05);//pintu belakang
+    glVertex3d(2,-2,-5.05);
+    glVertex3d(2,1,-5.05);
+    glVertex3d(-2,1,-5.05);
+    glVertex3d(-4.5,-1,3.05);//jendela rmh1 depan
+    glVertex3d(-2.5,-1,3.05);
+    glVertex3d(-2.5,1.3,3.05);
+    glVertex3d(-4.5,1.3,3.05);
+    glVertex3d(-6.5,-1,-5.05);//jendela rmh1 belakang
+    glVertex3d(-2.5,-1,-5.05);
+    glVertex3d(-2.5,1,-5.05);
+    glVertex3d(-6.5,1,-5.05);
+    glVertex3d(-7,-1,3.05);//jendela rmh2 depan
+    glVertex3d(-4.8,-1,3.05);
+    glVertex3d(-4.8,1.3,3.05);
+    glVertex3d(-7,1.3,3.05);
+    glVertex3d(6.5,-1,-5.05);//jendela rmh2 belakang
+    glVertex3d(2.5,-1,-5.05);
+    glVertex3d(2.5,1,-5.05);
+    glVertex3d(6.5,1,-5.05);
+    glEnd();
+    glBegin(GL_TRIANGLES);
+    cobain(-3,5,0,0,8,2,-8,2,-5.5,4.5,0);
+    glEnd();
+    glBegin(GL_LINES);
+    glColor3f(0,0,0);
+    glVertex3d(8,1.8,4.5);
+    glVertex3d(-8,1.8,4.5);
+    glVertex3d(-8,1.8,-5.5);
+    glVertex3d(8,1.8,-5.5);
+    glColor3f(1,0,0);
+    glVertex3d(-4.5,-1,-5.05);
+    glVertex3d(-4.5,1,-5.05);
+    glVertex3d(4.5,-1,-5.05);
+    glVertex3d(4.5,1,-5.05);
     glEnd();
     glutSwapBuffers(); /*Fungsi berikutnya adalah glutSwapBuffers(),
     yaitu digunakan untuk menukar bagian belakan buffer menjadi buffer
