@@ -274,24 +274,23 @@ void drawSceneTanah(Terrain *terrain, GLfloat r, GLfloat g, GLfloat b) {
 void jalan()
 {
     glPushMatrix();
-        glColor3f(1.0f, 1.0f, 1.0f);
+    glColor3f(1.0f, 1.0f, 1.0f);
     glScaled(10.5, 0.1, 2.5);
     glutSolidCube(0.5f);
     glPopMatrix();
 }
 
-
 void pohon(){
-glColor3f(0.8, 0.5, 0.2);
 //batang-awal
+glColor3f(0.8, 0.5, 0.2);
 glPushMatrix();
 glScalef(0.2, 2, 0.2);
 glutSolidSphere(1.0, 20, 16);
 glPopMatrix();
 //batang-akhir
 
-glColor3f(0.0, 1.0, 0.0);
 //daun
+glColor3f(0.0, 1.0, 0.0);
 glPushMatrix();
 glScalef(1, 1, 1.0);
 glTranslatef(0, 1, 0);
@@ -319,50 +318,50 @@ void rumah(){
 
 //tembok
  glPushMatrix();
- glColor3f(0,0,0.5);
+ glColor3f(1.0, 0.3, 0.2);
  glRotatef(50,0,1,0);
  glutSolidCube(3);
 
 //pintu
 glPushMatrix();
 glColor3f(0.5,0.8,0);
-glTranslatef(-0.6,-1,1.46);
-glScalef(7,10,1);
+glTranslatef(-0.30,-0.85,1.46);
+glScalef(9,23,1);
 glutSolidCube(0.1);
 glPopMatrix();
 //jendela
 glPushMatrix();
-glColor3f(0.5,0.8,0);
-glTranslatef(0.5,0.1,1.46);
-glScalef(3,3,1);
+glColor3f(0, 0, 0);
+glTranslatef(0.5,0.5,1.46);
+glScalef(3.7, 3.7,1);
 glutSolidCube(0.1);
 glPopMatrix();
 
 glPushMatrix();
-glColor3f(0.5,0.8,0);
-glTranslatef(0.9,0.1,1.46);
-glScalef(3,3,1);
+glColor3f(0,0,0);
+glTranslatef(0.9,0.5,1.46);
+glScalef(3.7, 3.7,1);
 glutSolidCube(0.1);
 glPopMatrix();
 
 glPushMatrix();
-glColor3f(0.5,0.8,0);
-glTranslatef(0.9,-0.3,1.46);
-glScalef(3,3,1);
+glColor3f(0,0,0);
+glTranslatef(0.9,0,1.46);
+glScalef(3.7, 3.7,1);
 glutSolidCube(0.1);
 glPopMatrix();
 
 glPushMatrix();
-glColor3f(0.5,0.8,0);
-glTranslatef(0.5,-0.3,1.46);
-glScalef(3,3,1);
+glColor3f(0,0,0);
+glTranslatef(0.5,0,1.46);
+glScalef(3.7, 3.7,1);
 glutSolidCube(0.1);
 glPopMatrix();
 glPopMatrix();
 
 //atap
  glPushMatrix();
- glColor3f(0.8,0,0);
+ glColor3f(0.0, 0.0, 1.0);
  glRotatef(5,0,1,0);
  glTranslatef(0,1.5,0);
  glScalef(3,1.3,3);
@@ -384,19 +383,19 @@ void display(void) {
 	glPushMatrix();
 
 	//glBindTexture(GL_TEXTURE_3D, texture[0]);
-	drawSceneTanah(_terrain, 0.3f, 0.9f, 0.0f);
+	drawSceneTanah(_terrain, 0.0f, 0.0f, 0.0f);
 	glPopMatrix();
 
 	glPushMatrix();
 
 	//glBindTexture(GL_TEXTURE_3D, texture[0]);
-	drawSceneTanah(_terrainTanah, 0.7f, 0.2f, 0.1f);
+	drawSceneTanah(_terrainTanah, 0.3f, 0.9f, 0.0f);
 	glPopMatrix();
 
 	glPushMatrix();
 
 	//glBindTexture(GL_TEXTURE_3D, texture[0]);
-	drawSceneTanah(_terrainAir, 0.0f, 0.2f, 0.5f);
+	drawSceneTanah(_terrainAir, 0.7f, 0.2f, 0.1f);
 	glPopMatrix();
 
 	glutSwapBuffers();
@@ -404,22 +403,23 @@ void display(void) {
 	rot++;
 	angle++;
 
+    //rumah
     int i;
     for ( i=0;i<5;i++){
     glPushMatrix();
-    glScalef(10, 10, 10);
-    glTranslatef(-10+(i*6), 1, 28);
-    glRotatef(40, 0, 1, 0);
+    glScalef(7, 7, 7);
+    glTranslatef(-11+(i*5), 1, -1);
+    glRotatef(-50, 0, 1, 0);
     rumah();
     glPopMatrix();
     }
 
-        int j;
-    for ( j=0;j<5;j++){
+    int j;
+    for ( j=0;j<2;j++){
     glPushMatrix();
-    glScalef(10, 10, 10);
-    glTranslatef(-10+(j*6), 1, 34);
-    glRotatef(40, 0, 1, 0);
+    glScalef(5,5,5);
+    glTranslatef(-3+(j*5), 1, 12);
+    glRotatef(130, 0, 1, 0);
     rumah();
     glPopMatrix();
     }
@@ -428,7 +428,7 @@ void display(void) {
     for (int i = -3; i < 6; i++)
     {
         glPushMatrix();
-        glTranslatef(i*22, 0.0, 25);
+        glTranslatef(i*22, 0.0, 35);
         jalan();
         glPopMatrix();
     }
@@ -436,50 +436,51 @@ void display(void) {
     //pohon-awal
     glPushMatrix();
     glColor3f(1, 0, 0);
-    glTranslatef(-110, 0, 85);
+    glTranslatef(-60, 0, -60);
     glScalef(10, 10, 10);
     pohon();
     glPopMatrix();
 
     glPushMatrix();
     glColor3f(1, 0, 0);
-    glTranslatef(-110, 0, -85);
+    glTranslatef(-130, 0, -50);
     glScalef(10, 10, 10);
     pohon();
     glPopMatrix();
 
     glPushMatrix();
     glColor3f(1, 0, 0);
-    glTranslatef(-110, 0, 0);
+    glTranslatef(10, 5, -55);
     glScalef(10, 10, 10);
     pohon();
     glPopMatrix();
 
     glPushMatrix();
     glColor3f(1, 0, 0);
-    glTranslatef(0, 0, -85);
+    glTranslatef(50, 0, -80);
     glScalef(10, 10, 10);
     pohon();
     glPopMatrix();
 
     glPushMatrix();
     glColor3f(1, 0, 0);
-    glTranslatef(0, 0, 85);
-    glScalef(10, 10, 10);
+    glTranslatef(-180 , 0, -25);
+    glScalef(8, 8, 8);
     pohon();
     glPopMatrix();
 
     glPushMatrix();
     glColor3f(1, 0, 0);
-    glTranslatef(125, 0, -85);
+    glTranslatef(-175, 0, 0);
     glScalef(10, 10, 10);
     pohon();
     glPopMatrix();
 
-   glPushMatrix();
+
+    glPushMatrix();
     glColor3f(1, 0, 0);
-    glTranslatef(100, 0, 85);
-    glScalef(7, 7, 7);
+    glTranslatef(-160, 0, 35);
+    glScalef(9, 9, 9);
     pohon();
     glPopMatrix();
     //pohon-beres
