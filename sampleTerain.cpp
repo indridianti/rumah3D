@@ -280,6 +280,31 @@ void jalan()
     glPopMatrix();
 }
 
+void awan(void){
+glPushMatrix();
+glColorMaterial(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE);
+glColor3ub(153, 223, 255);
+glutSolidSphere(10, 50, 50);
+glPopMatrix();
+glPushMatrix();
+glTranslatef(10,0,1);
+glutSolidSphere(5, 50, 50);
+glPopMatrix();
+glPushMatrix();
+glTranslatef(-2,6,-2);
+glutSolidSphere(7, 50, 50);
+glPopMatrix();
+glPushMatrix();
+glTranslatef(-10,-3,0);
+glutSolidSphere(7, 50, 50);
+glPopMatrix();
+glPushMatrix();
+glTranslatef(6,-2,2);
+glutSolidSphere(7, 50, 50);
+glPopMatrix();
+}
+
+
 void pohon(){
 //batang-awal
 glColor3f(0.8, 0.5, 0.2);
@@ -432,6 +457,25 @@ void display(void) {
         jalan();
         glPopMatrix();
     }
+
+    //awan
+    glPushMatrix();
+    glScalef(1,0.5,0.5);
+    glTranslatef(-50,90,2);
+    awan();
+    glPopMatrix();
+
+    glPushMatrix();
+    glScalef(1,0.5,1);
+    glTranslatef(2,90,2);
+    awan();
+    glPopMatrix();
+
+    glPushMatrix();
+    glScalef(0.5,0.5,0.5);
+    glTranslatef(-95,90,60);
+    awan();
+    glPopMatrix();
 
     //pohon-awal
     glPushMatrix();
