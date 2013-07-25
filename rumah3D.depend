@@ -1,0 +1,28 @@
+# depslib dependency file v1.0
+1372835648 source:d:\project opengl\rumah3d\imageloader.cpp
+	<assert.h>
+	<fstream>
+	"imageloader.h"
+
+1338889972 d:\project opengl\rumah3d\imageloader.h
+
+1338889972 source:d:\project opengl\rumah3d\vec3f.cpp
+	<math.h>
+	"vec3f.h"
+
+1338889972 d:\project opengl\rumah3d\vec3f.h
+	<iostream>
+
+1374735161 source:d:\project opengl\rumah3d\main.cpp
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<math.h>
+	<OpenGL/OpenGL.h>
+	<GLUT/glut.h>
+	<GL/glut.h>
+	<GL/glu.h>
+	<GL/gl.h>
+	"imageloader.h"
+	"vec3f.h"
+
